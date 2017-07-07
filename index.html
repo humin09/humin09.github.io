@@ -1,0 +1,147 @@
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>纠纷终极解决方案</title>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+    <center>
+        <div><span>请输入人员名字，以英文逗号(,)分隔</span></div>
+        <br>
+        <input id="nameList" type="text" name="">
+        <button id="start_btn" length="30" accesskey="s">===开始===</button>
+        <br>
+        <div>
+            <h1 id="oknum">请单击开始</h1></div>
+            <table border="0">
+
+                <tbody>
+                    <tr>
+                        <td align="center">25</td>
+                        <td align="center">26</td>
+                        <td align="center">27</td>
+                    </tr>
+                    <tr>
+                        <td><span>窗户</span></td>
+                        <td><span>窗户</span></td>
+                        <td><span>窗户</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea id="result1" readonly="true" rows="20"></textarea>
+                        </td>
+                        <td>
+                            <textarea id="result2" readonly="true" rows="20"></textarea>
+                        </td>
+                        <td>
+                            <textarea id="result3" readonly="true" rows="20"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span id="n1"></span></td>
+                        <td><span id="n2"></span></td>
+                        <td><span id="n3"></span></td>
+                    </tr>
+                    <tr>
+                        <td><span>过道</span></td>
+                        <td><span>过道</span></td>
+                        <td><span>过道</span></td>
+                    </tr>
+                </tbody></table>
+            </center>
+            <script src="./随机分组_files/jquery.js"></script>
+            <script type="text/javascript">
+                Array.prototype.indexOf = function(val) {
+                    for (var i = 0; i < this.length; i++) {
+                        if (this[i] == val) return i;
+                    }
+                    return -1;
+                };
+
+                Array.prototype.remove = function(val) {
+                    var index = this.indexOf(val);
+                    if (index > -1) {
+                        this.splice(index, 1);
+                    }
+                };
+
+                var changeTimer;
+                var countTimer;
+
+                function change(list, size) {
+                    $("#oknum").html(list[getRnd(0, size)]);
+                }
+
+
+                $("#start_btn").click(function start() {
+
+                    if ($("#nameList").val().trim() == "") {
+                        alert("请输入人员名字，以英文逗号(,)分隔");
+                        return;
+                    }
+
+                    init();
+
+                    $("#start_btn").attr("disabled", true);
+
+                    var list = $("#nameList").val().split(",");
+                    var length = list.length;
+                    var i = 0;
+                    makeChange(list, length);
+                    countTimer = setInterval(function() {
+                        clearInterval(changeTimer);
+                        var selected = $("#oknum").html();
+                        list.remove(selected);
+                        length--;
+                        fillText("result"+(i%3+1), selected);
+                        i++;
+                        makeChange(list, length);
+                        if (length <= 0) {
+                            clearInterval(countTimer);
+                            clearInterval(changeTimer);
+                            // alert("随机分组完成！");
+                            $("#n1").html($("#result1").val().trim() == "" ? "0人" : $("#result1").val().split("\n").length + "人");
+                            $("#n2").html($("#result2").val().trim() == "" ? "0人" : $("#result2").val().split("\n").length + "人");
+                            $("#n3").html($("#result3").val().trim() == "" ? "0人" : $("#result3").val().split("\n").length + "人");
+                            $("#start_btn").attr("disabled", false);
+                        }
+                    }, 2000);
+                });
+
+                function init() {
+                    $("#result1").html("");
+                    $("#result2").html("");
+                    $("#result3").html("");
+                    $("#n1").html("");
+                    $("#n2").html("");
+                    $("#n3").html("");
+                }
+
+
+                function fillText(container, selected) {
+                    var str = $("#" + container).val();
+                    if (str != "") {
+                        $("#" + container).append("\n").append(selected);
+                    } else {
+                        $("#" + container).append(selected);
+                    }
+                }
+
+                function makeChange(list, size) {
+                    clearInterval(changeTimer);
+                    changeTimer = setInterval(function() {
+                        change(list, size);
+                    }, 100);
+                }
+
+
+                function getRnd(min, max) {
+                    return parseInt(Math.random() * (max - min + 1));
+                }
+            </script>
+
+
+
+        </body></html>
