@@ -1,0 +1,21 @@
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg">
+    <g>
+        <title>Layer 1</title>
+        <text stroke="#000000" transform="matrix(5.68293 0 0 -0.318739 -1881 246.13)" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" id="svg_5" y="169" x="410" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#000000"/>
+  <text stroke="#000000" transform="matrix(12.5597 0 0 2.09232 -4726.49 -163.249)" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" id="svg_6" y="171" x="410" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#000000"/>
+        <g id="svg_18"/>
+        <rect id="svg_9" height="69" width="151" y="6" x="4.5" stroke-linecap="null" stroke-linejoin="null"
+              stroke-dasharray="null" stroke-width="5" stroke="#000000" fill="#00ffff">Identified
+        </rect>
+        <text id="svg_11" stroke="#000000" transform="matrix(0.929956 0 0 0.856823 3.99469 30.0738)"
+              xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" y="21.932062" x="78.504029"
+              stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#000000">
+            Identified by
+        </text>
+        <rect id="svg_12" stroke="#000000" height="69.000001" width="176.000007" y="5.999999" x="155.5"
+              stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="#007fff"/>
+        <rect id="svg_14" height="1" width="0" y="6" x="218.5" stroke-linecap="null" stroke-linejoin="null"
+              stroke-dasharray="null" stroke-width="5" stroke="#000000" fill="#00ffff"/>
+        <text id="svg_15" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" y="48" x="242.5" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" stroke="#000000" fill="#000000">Manhattan P3C</text>
+    </g>
+</svg>
