@@ -117,8 +117,7 @@
                     var length = list.length;
                     while (length<n) {
                         length=length*2
-                        list.concat(list)
-                        alert(list)
+                        list=list.concat(list)
                     }
                     var i = 0;
                     makeChange(list, length);
@@ -127,7 +126,7 @@
                         var selected = $("#oknum").html();
                         list.remove(selected);
                         length--;
-                        fillText("result"+(i%3+1), selected);
+                        fillText("result"+(i%n+1), selected);
                         i++;
                         makeChange(list, length);
                         if (length <= 0) {
