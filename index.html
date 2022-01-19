@@ -63,18 +63,6 @@
                         </td>
 
                     </tr>
-                    <tr>
-                        <td><span id="col0"></span></td>
-                        <td><span id="col1"></span></td>
-                        <td><span id="col2"></span></td>
-                        <td><span id="col3"></span></td>
-                        <td><span id="col4"></span></td>
-                        <td><span id="col5"></span></td>
-                        <td><span id="col6"></span></td>
-                        <td><span id="col7"></span></td>
-                        <td><span id="col8"></span></td>
-                        <td><span id="col9"></span></td>
-                    </tr>
                 </tbody></table>
             </center>
             <script src="./随机分组_files/jquery.js"></script>
@@ -93,26 +81,16 @@
                         this.splice(index, 1);
                     }
                 };
-
                 var changeTimer;
                 var countTimer;
-
-                function change(list, size) {
-                    $("#oknum").html(list[getRnd(0, size)]);
-                }
-
-
                 $("#start_btn").click(function start() {
-
                     if ($("#nameList").val().trim() == "") {
                         alert("请输入人员名字，以英文逗号(,)分隔");
                         return;
                     }
-
                     init();
-
                     $("#start_btn").attr("disabled", true);
-                    
+               
                     var list = $("#nameList").val().split(",");
                     var length = list.length;
                     while (length<n) {
@@ -132,9 +110,6 @@
                         if (length <= 0) {
                             clearInterval(countTimer);
                             clearInterval(changeTimer);
-                             for (var i = 0; i < n; i++) {
-                                $("#col"+i).html($("#result"+i).val().trim() == "" ? "0人" : $("#result"+i).val().split("\n").length + "人");
-                            }
                             $("#start_btn").attr("disabled", false);
                         }
                     }, 2000);
@@ -146,8 +121,6 @@
                         $("#col"+i).html("");
                     }
                 }
-
-
                 function fillText(container, selected) {
                     var str = $("#" + container).val();
                     if (str != "") {
@@ -156,15 +129,15 @@
                         $("#" + container).append(selected);
                     }
                 }
-
                 function makeChange(list, size) {
                     clearInterval(changeTimer);
                     changeTimer = setInterval(function() {
                         change(list, size);
                     }, 100);
                 }
-
-
+                function change(list, size) {
+                    $("#oknum").html(list[getRnd(0, size)]);
+                }
                 function getRnd(min, max) {
                     return parseInt(Math.random() * (max - min + 1));
                 }
