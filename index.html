@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>纠纷终极解决方案</title>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -14,147 +16,146 @@
         <button id="start_btn" length="30" accesskey="s">===开始===</button>
         <br>
         <div>
-            <h1 id="oknum">遇事不决, 尊重科学</h1></div>
-            <table border="0">
+            <h1 id="oknum">遇事不决, 量子力学</h1>
+        </div>
+        <table border="0">
+            <tbody>
+                <tr>
+                    <td align="center">1.29</td>
+                    <td align="center">1.30</td>
+                    <td align="center">1.31</td>
+                    <td align="center">2.1</td>
+                    <td align="center">2.2</td>
+                    <td align="center">2.3</td>
+                    <td align="center">2.4</td>
+                    <td align="center">2.5</td>
+                    <td align="center">2.6</td>
+                    <td align="center">2.7</td>
+                    <td align="center">2.8</td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea id="result0" readonly="true" rows="10" cols="10"></textarea>
+                    </td>
+                    <td>
+                        <textarea id="result1" readonly="true" rows="10" cols="10"></textarea>
+                    </td>
+                    <td>
+                        <textarea id="result2" readonly="true" rows="10" cols="10"></textarea>
+                    </td>
+                    <td>
+                        <textarea id="result3" readonly="true" rows="10" cols="10"></textarea>
+                    </td>
+                    <td>
+                        <textarea id="result4" readonly="true" rows="10" cols="10"></textarea>
+                    </td>
+                    <td>
+                        <textarea id="result5" readonly="true" rows="10" cols="10"></textarea>
+                    </td>
+                    <td>
+                        <textarea id="result6" readonly="true" rows="10" cols="10"></textarea>
+                    </td>
+                    <td>
+                        <textarea id="result7" readonly="true" rows="10" cols="10"></textarea>
+                    </td>
+                    <td>
+                        <textarea id="result8" readonly="true" rows="10" cols="10"></textarea>
+                    </td>
+                    <td>
+                        <textarea id="result9" readonly="true" rows="10" cols="10"></textarea>
+                    </td>
+                    <td>
+                        <textarea id="result10" readonly="true" rows="10" cols="10"></textarea>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </center>
+    <script src="./随机分组_files/jquery.js"></script>
+    <script type="text/javascript">
+        var n = 11; //这是分组个数
+        var scheduleMode = false;//是分组模式, 还是排班模式, 分组模式是人比组多, 排班模式是组比人多
+        Array.prototype.indexOf = function (val) {
+            for (var i = 0; i < this.length; i++) {
+                if (this[i] == val) return i;
+            }
+            return -1;
+        };
 
-                <tbody>
-                    <tr>
-                        <td align="center">1.29</td>
-                        <td align="center">1.30</td>
-                        <td align="center">1.31</td>
-                        <td align="center">2.1</td>
-                        <td align="center">2.2</td>
-                        <td align="center">2.3</td>
-                        <td align="center">2.4</td>
-                        <td align="center">2.5</td>
-                        <td align="center">2.6</td>
-                        <td align="center">2.7</td>
-                        <td align="center">2.8</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <textarea id="result0" readonly="true" rows="10"></textarea>
-                        </td>
-                        <td>
-                            <textarea id="result1" readonly="true" rows="10"></textarea>
-                        </td>
-                        <td>
-                            <textarea id="result2" readonly="true" rows="10"></textarea>
-                        </td>
-                        <td>
-                            <textarea id="result3" readonly="true" rows="10"></textarea>
-                        </td>
-                        <td>
-                            <textarea id="result4" readonly="true" rows="10"></textarea>
-                        </td>
-                        <td>
-                            <textarea id="result5" readonly="true" rows="10"></textarea>
-                        </td>
-                        <td>
-                            <textarea id="result6" readonly="true" rows="10"></textarea>
-                        </td>
-                        <td>
-                            <textarea id="result7" readonly="true" rows="10"></textarea>
-                        </td>
-                        <td>
-                            <textarea id="result8" readonly="true" rows="10"></textarea>
-                        </td>
-                        <td>
-                            <textarea id="result9" readonly="true" rows="10"></textarea>
-                        </td>
-                        <td>
-                            <textarea id="result10" readonly="true" rows="10"></textarea>
-                        </td>
+        Array.prototype.remove = function (val) {
+            var index = this.indexOf(val);
+            if (index > -1) {
+                this.splice(index, 1);
+            }
+        };
+        var changeTimer;
+        var countTimer;
+        $("#start_btn").click(function start() {
+            if ($("#nameList").val().trim() == "") {
+                alert("请输入人员名字，以英文逗号(,)分隔");
+                return;
+            }
+            init();
+            $("#start_btn").attr("disabled", true);
 
-                    </tr>
-                </tbody></table>
-            </center>
-            <script src="./随机分组_files/jquery.js"></script>
-            <script type="text/javascript">
-                var n=11; //这是分组个数
-                var scheduleMode=false;//是分组模式, 还是排班模式, 分组模式是人比组多, 排班模式是组比人多
-                Array.prototype.indexOf = function(val) {
-                    for (var i = 0; i < this.length; i++) {
-                        if (this[i] == val) return i;
-                    }
-                    return -1;
-                };
+            var list = $("#nameList").val().split(",");
+            var length = list.length;
+            var diff= 0
+            while (length < n) {
+                scheduleMode = true
+                length = length * 2
+                list = list.concat(list)
+                diff=length-n
+            }
+            var i = 0;
 
-                Array.prototype.remove = function(val) {
-                    var index = this.indexOf(val);
-                    if (index > -1) {
-                        this.splice(index, 1);
-                    }
-                };
-                var changeTimer;
-                var countTimer;
-                $("#start_btn").click(function start() {
-                    if ($("#nameList").val().trim() == "") {
-                        alert("请输入人员名字，以英文逗号(,)分隔");
-                        return;
-                    }
-                    init();
-                    $("#start_btn").attr("disabled", true);
-               
-                    var list = $("#nameList").val().split(",");
-                    var length = list.length;
-                    while (length<n) {
-                        scheduleMode=true
-                        length=length*2
-                        list=list.concat(list)
-                    }
-                    var i = 0;
-                    
-                    makeChange(list, length);
-                    countTimer = setInterval(function() {
-                        clearInterval(changeTimer);
-                        var selected = $("#oknum").html();
-                        list.remove(selected);
-                        if scheduleMode {
-                          n--;  
-                        } else {
-                          length--; 
-                        }
-                        fillText("result"+(i%n+1), selected);
-                        i++;
-                        makeChange(list, length);
-                        if (length <= 0||n<=0) {
-                            clearInterval(countTimer);
-                            clearInterval(changeTimer);
-                            $("#start_btn").attr("disabled", false);
-                        }
-                    }, 2000);
-                });
-
-                function init() {
-                    for (var i = 0; i < n; i++) {
-                        $("#result"+i).html("");
-                        $("#col"+i).html("");
-                    }
-                }
-                function fillText(container, selected) {
-                    var str = $("#" + container).val();
-                    if (str != "") {
-                        $("#" + container).append("\n").append(selected);
-                    } else {
-                        $("#" + container).append(selected);
-                    }
-                }
-                function makeChange(list, size) {
+            makeChange(list, length);
+            countTimer = setInterval(function () {
+                clearInterval(changeTimer);
+                var selected = $("#oknum").html();
+                list.remove(selected);
+                length--;
+                fillText("result" + (i % n), selected);
+                i++;
+                makeChange(list, length);
+                if (length <= 0 || (scheduleMode == true && length == diff)) {
+                    clearInterval(countTimer);
                     clearInterval(changeTimer);
-                    changeTimer = setInterval(function() {
-                        change(list, size);
-                    }, 100);
+                    $("#start_btn").attr("disabled", false);
                 }
-                function change(list, size) {
-                    $("#oknum").html(list[getRnd(0, size)]);
-                }
-                function getRnd(min, max) {
-                    return parseInt(Math.random() * (max - min + 1));
-                }
-            </script>
+            }, 2000);
+        });
+
+        function init() {
+            for (var i = 0; i < n; i++) {
+                $("#result" + i).html("");
+                $("#col" + i).html("");
+            }
+        }
+        function fillText(container, selected) {
+            var str = $("#" + container).val();
+            if (str != "") {
+                $("#" + container).append("\n").append(selected);
+            } else {
+                $("#" + container).append(selected);
+            }
+        }
+        function makeChange(list, size) {
+            clearInterval(changeTimer);
+            changeTimer = setInterval(function () {
+                change(list, size);
+            }, 100);
+        }
+        function change(list, size) {
+            $("#oknum").html(list[getRnd(0, size)]);
+        }
+        function getRnd(min, max) {
+            return parseInt(Math.random() * (max - min + 1));
+        }
+    </script>
 
 
 
-        </body>
-        </html>
+</body>
+
+</html>
