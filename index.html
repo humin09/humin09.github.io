@@ -32,34 +32,34 @@
                     </tr>
                     <tr>
                         <td>
-                            <textarea id="result0" readonly="true" rows="15"></textarea>
+                            <textarea id="result0" readonly="true" rows="10"></textarea>
                         </td>
                         <td>
-                            <textarea id="result1" readonly="true" rows="15"></textarea>
+                            <textarea id="result1" readonly="true" rows="10"></textarea>
                         </td>
                         <td>
-                            <textarea id="result2" readonly="true" rows="15"></textarea>
+                            <textarea id="result2" readonly="true" rows="10"></textarea>
                         </td>
                         <td>
-                            <textarea id="result3" readonly="true" rows="15"></textarea>
+                            <textarea id="result3" readonly="true" rows="10"></textarea>
                         </td>
                         <td>
-                            <textarea id="result4" readonly="true" rows="15"></textarea>
+                            <textarea id="result4" readonly="true" rows="10"></textarea>
                         </td>
                         <td>
-                            <textarea id="result5" readonly="true" rows="15"></textarea>
+                            <textarea id="result5" readonly="true" rows="10"></textarea>
                         </td>
                         <td>
-                            <textarea id="result6" readonly="true" rows="15"></textarea>
+                            <textarea id="result6" readonly="true" rows="10"></textarea>
                         </td>
                         <td>
-                            <textarea id="result7" readonly="true" rows="15"></textarea>
+                            <textarea id="result7" readonly="true" rows="10"></textarea>
                         </td>
                         <td>
-                            <textarea id="result8" readonly="true" rows="15"></textarea>
+                            <textarea id="result8" readonly="true" rows="10"></textarea>
                         </td>
                         <td>
-                            <textarea id="result9" readonly="true" rows="15"></textarea>
+                            <textarea id="result9" readonly="true" rows="10"></textarea>
                         </td>
 
                     </tr>
@@ -68,6 +68,7 @@
             <script src="./随机分组_files/jquery.js"></script>
             <script type="text/javascript">
                 var n=10; //这是分组个数
+                var scheduleMode=false;//是分组模式, 还是排班模式, 分组模式是人比组多, 排班模式是组比人多
                 Array.prototype.indexOf = function(val) {
                     for (var i = 0; i < this.length; i++) {
                         if (this[i] == val) return i;
@@ -94,20 +95,26 @@
                     var list = $("#nameList").val().split(",");
                     var length = list.length;
                     while (length<n) {
+                        scheduleMode=true
                         length=length*2
                         list=list.concat(list)
                     }
                     var i = 0;
+                    
                     makeChange(list, length);
                     countTimer = setInterval(function() {
                         clearInterval(changeTimer);
                         var selected = $("#oknum").html();
                         list.remove(selected);
-                        length--;
+                        if scheduleMode {
+                          n--;  
+                        } else {
+                          length--; 
+                        }
                         fillText("result"+(i%n+1), selected);
                         i++;
                         makeChange(list, length);
-                        if (length <= 0) {
+                        if (length <= 0||n<=0) {
                             clearInterval(countTimer);
                             clearInterval(changeTimer);
                             $("#start_btn").attr("disabled", false);
